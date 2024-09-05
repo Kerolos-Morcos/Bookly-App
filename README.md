@@ -1,6 +1,6 @@
 # bookly_app
 
-A new Flutter project.
+My eleventh Flutter project in my learning process..
 
 ## Getting Started
 
