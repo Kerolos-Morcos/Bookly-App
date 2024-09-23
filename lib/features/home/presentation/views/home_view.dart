@@ -8,11 +8,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: MediaQuery.sizeOf(context),
-        child: const CustomAppBar(),
+        preferredSize: Size.fromHeight(MediaQuery.sizeOf(context).height * 0.15),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: CustomAppBar(),
+        ),
       ),
       body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
         child: HomeViewBody(),
       ),
     );
