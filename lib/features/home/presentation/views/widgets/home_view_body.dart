@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -8,19 +8,26 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const BouncingScrollPhysics(),
+    return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       clipBehavior: Clip.none,
-      children: const [
-        SizedBox(height: 20),
-        FeaturedBooksListView(),
-        SizedBox(height: 40),
-        Text(
-          'Best Seller',
-          style: Styles.titleLargeBold22,
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              FeaturedBooksListView(),
+              SizedBox(height: 40),
+              Text(
+                'Best Seller',
+                style: Styles.titleLargeBold22,
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
-        SizedBox(height: 20),
-        BestSellerListViewItem(),
+        BestSellerListView()
       ],
     );
   }
