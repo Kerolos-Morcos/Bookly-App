@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/splash/presentation/views/widgets/splash_animated_builder.dart';
@@ -26,12 +28,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      // Get.to(
-      //   () => const HomeView(),
-      //   transition: Transition.fade,
-      //   duration: kTabScrollDuration,
-      // );
-
       GoRouter.of(context).push(
         AppRouter.kHomeView,
       );
