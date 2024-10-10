@@ -54,7 +54,16 @@ class BestSellerItem extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                   const SizedBox(height: 3),
-                  const BookRating(),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '19.99 €',
+                        style: Styles.subTitleLarge24,
+                      ),
+                      BookRating(),
+                    ],
+                  ),
                 ],
               ),
             )
