@@ -1,5 +1,6 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_details_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -14,13 +15,16 @@ class BookDetailsViewBody extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     return ListView(
       children: [
-        const CustomBookDetailsAppBar(),
-        const SizedBox(height: 25),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: CustomBookDetailsAppBar(),
+        ),
+        const SizedBox(height: 15),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.2),
+          padding: EdgeInsets.symmetric(horizontal: width * 0.26),
           child: const CustomBookImage(),
         ),
-        const SizedBox(height: 30),
+        const SizedBox(height: 15),
         Text(
           'The Jungle Book',
           style: Styles.titleLargeBold22.copyWith(
@@ -39,14 +43,31 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 8),
         const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
         ),
+        const SizedBox(height: 25),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: BooksAction(),
+        ),
         const SizedBox(height: 30),
-        const BooksAction(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Text(
+            'You can also like',
+            style: Styles.subTitleSmall17
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+          ),
+        ),
+        const SizedBox(height: 12),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: BookDetailsListView(),
+        ),
+        const SizedBox(height: 20),
       ],
     );
   }
 }
-
