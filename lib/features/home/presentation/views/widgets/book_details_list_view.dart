@@ -7,7 +7,7 @@ class BookDetailsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.26,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: ListView.builder(
         clipBehavior: Clip.none,
         scrollDirection: Axis.horizontal,
@@ -16,7 +16,7 @@ class BookDetailsListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(
-              right: index == 9 ? 0 : 14.0,
+              right: index == 9 ? 0 : 16.0,
             ),
             child: const CustomBookImage(),
           );

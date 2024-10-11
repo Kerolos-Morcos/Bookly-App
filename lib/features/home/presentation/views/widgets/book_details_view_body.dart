@@ -24,7 +24,7 @@ class BookDetailsViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: width * 0.26),
           child: const CustomBookImage(),
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 18),
         Text(
           'The Jungle Book',
           style: Styles.titleLargeBold22.copyWith(
@@ -47,7 +47,7 @@ class BookDetailsViewBody extends StatelessWidget {
         const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
         ),
-        const SizedBox(height: 25),
+        const SizedBox(height: 20),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: BooksAction(),
