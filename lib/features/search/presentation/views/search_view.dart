@@ -8,10 +8,7 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
-          child: SearchViewBody(),
-        ),
+        child: SearchViewBody(),
       ),
     );
   }
