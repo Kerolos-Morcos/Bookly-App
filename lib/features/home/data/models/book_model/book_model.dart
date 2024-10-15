@@ -6,7 +6,7 @@ import 'volume_info.dart';
 class BookModel {
   String? kind;
   String? id;
-  String? etag;
+  String? eTag;
   String? selfLink;
   VolumeInfo? volumeInfo;
   SaleInfo? saleInfo;
@@ -16,7 +16,7 @@ class BookModel {
   BookModel({
     this.kind,
     this.id,
-    this.etag,
+    this.eTag,
     this.selfLink,
     this.volumeInfo,
     this.saleInfo,
@@ -27,7 +27,7 @@ class BookModel {
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         kind: json['kind'] as String?,
         id: json['id'] as String?,
-        etag: json['etag'] as String?,
+        eTag: json['etag'] as String?,
         selfLink: json['selfLink'] as String?,
         volumeInfo: json['volumeInfo'] == null
             ? null
@@ -46,7 +46,7 @@ class BookModel {
   Map<String, dynamic> toJson() => {
         'kind': kind,
         'id': id,
-        'etag': etag,
+        'etag': eTag,
         'selfLink': selfLink,
         'volumeInfo': volumeInfo?.toJson(),
         'saleInfo': saleInfo?.toJson(),
