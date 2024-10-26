@@ -48,7 +48,7 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
+        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -61,7 +61,7 @@ class VolumeInfo {
                 json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
-        categories: json['categories'] as List<String>?,
+        categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
