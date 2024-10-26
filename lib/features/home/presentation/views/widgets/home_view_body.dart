@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
               FeaturedBooksListView(),
               SizedBox(height: 40),
               Text(
-                'Best Seller',
+                'Newest Books',
                 style: Styles.titleLargeBold22,
               ),
               SizedBox(height: 20),

@@ -6,7 +6,6 @@ import 'reading_modes.dart';
 class VolumeInfo {
   String? title;
   List<String>? authors;
-  String? publisher;
   String? publishedDate;
   String? description;
   List<IndustryIdentifier>? industryIdentifiers;
@@ -14,6 +13,8 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
+  double? averageRating;
+  int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -27,7 +28,6 @@ class VolumeInfo {
   VolumeInfo({
     this.title,
     this.authors,
-    this.publisher,
     this.publishedDate,
     this.description,
     this.industryIdentifiers,
@@ -35,6 +35,8 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -49,7 +51,6 @@ class VolumeInfo {
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
         authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
-        publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
         industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
@@ -62,6 +63,8 @@ class VolumeInfo {
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
+        averageRating: (json['averageRating'] as num?)?.toDouble(),
+        ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
@@ -81,7 +84,6 @@ class VolumeInfo {
   Map<String, dynamic> toJson() => {
         'title': title,
         'authors': authors,
-        'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
         'industryIdentifiers':
@@ -90,6 +92,8 @@ class VolumeInfo {
         'pageCount': pageCount,
         'printType': printType,
         'categories': categories,
+        'averageRating': averageRating,
+        'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,

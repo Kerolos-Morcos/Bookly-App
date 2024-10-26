@@ -4,7 +4,7 @@ import 'package:bookly_app/features/home/presentation/views/widgets/book_details
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -26,7 +26,9 @@ class BookDetailsViewBody extends StatelessWidget {
               const SizedBox(height: 15),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.26),
-                child: const CustomBookImage(),
+                child: const CustomBookImage(
+                  aspectRatio: 1.70 / 2.5,
+                ),
               ),
               const SizedBox(height: 18),
               Text(
@@ -49,6 +51,8 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const BookRating(
+                count: 5,
+                rating: 5,
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
               const SizedBox(height: 20),

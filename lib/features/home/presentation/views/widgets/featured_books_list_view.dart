@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/utils/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,6 +27,7 @@ class FeaturedBooksListView extends StatelessWidget {
                     right: index == reversedBooks.length - 1 ? 0 : 14.0,
                   ),
                   child: CustomBookImage(
+                    aspectRatio: 1.70 / 2.5,
                     imageURL:
                         reversedBooks[index].volumeInfo.imageLinks!.thumbnail!,
                   ),

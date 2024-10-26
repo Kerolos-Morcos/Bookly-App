@@ -1,12 +1,15 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class NewestBooksItem extends StatelessWidget {
-  const NewestBooksItem({super.key});
+  final BookModel bookModel;
+  const NewestBooksItem({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +22,9 @@ class NewestBooksItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            AspectRatio(
+            CustomBookImage(
               aspectRatio: 2.4 / 3.4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/images/BookHigh.png'),
-                  ),
-                ),
-              ),
+              imageURL: bookModel.volumeInfo.imageLinks!.thumbnail,
             ),
             const SizedBox(
               width: 32,
@@ -37,31 +32,38 @@ class NewestBooksItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Harry Potter\nand the Goblet of Fire',
                     maxLines: 2,
+                    bookModel.volumeInfo.title!,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.subTitleLarge24.copyWith(
                       fontFamily: kGTSectraFine,
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.subTitleSmall17,
                     textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                   const SizedBox(height: 3),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '19.99 €',
-                        style: Styles.subTitleLarge24,
+                      const Text(
+                        'Free',
+                        style: Styles.titleLargeBold22,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
+                      ),
                     ],
                   ),
                 ],
