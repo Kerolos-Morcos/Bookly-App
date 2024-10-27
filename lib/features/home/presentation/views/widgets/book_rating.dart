@@ -32,7 +32,7 @@ class BookRating extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 8),
           child: Text(
-            '$count',
+            '($count)',
             style: Styles.subTitleSmall17,
           ),
         ),

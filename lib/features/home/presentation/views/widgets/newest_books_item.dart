@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class NewestBooksItem extends StatelessWidget {
-  final BookModel bookModel;
-  const NewestBooksItem({super.key, required this.bookModel});
+  final BookModel? bookModel;
+  const NewestBooksItem({super.key, this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,9 @@ class NewestBooksItem extends StatelessWidget {
           children: [
             CustomBookImage(
               aspectRatio: 2.4 / 3.4,
-              imageURL: bookModel.volumeInfo.imageLinks!.thumbnail,
+              imageURL: bookModel!.volumeInfo.imageLinks!.thumbnail,
             ),
-            const SizedBox(
-              width: 32,
-            ),
+            const SizedBox(width: 32),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +34,7 @@ class NewestBooksItem extends StatelessWidget {
                 children: [
                   Text(
                     maxLines: 2,
-                    bookModel.volumeInfo.title!,
+                    bookModel!.volumeInfo.title!,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.subTitleLarge24.copyWith(
                       fontFamily: kGTSectraFine,
@@ -44,7 +42,7 @@ class NewestBooksItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel!.volumeInfo.authors![0],
                     style: Styles.subTitleSmall17,
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.ellipsis,
@@ -61,8 +59,8 @@ class NewestBooksItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       BookRating(
-                        rating: bookModel.volumeInfo.averageRating ?? 0,
-                        count: bookModel.volumeInfo.ratingsCount ?? 0,
+                        rating: bookModel!.volumeInfo.averageRating ?? 0,
+                        count: bookModel!.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],
                   ),
