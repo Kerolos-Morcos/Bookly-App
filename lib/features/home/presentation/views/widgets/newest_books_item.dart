@@ -24,7 +24,8 @@ class NewestBooksItem extends StatelessWidget {
           children: [
             CustomBookImage(
               aspectRatio: 2.4 / 3.4,
-              imageURL: bookModel!.volumeInfo.imageLinks!.thumbnail,
+              imageURL: bookModel!.volumeInfo.imageLinks!.thumbnail ??
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp8tqoFKYU6xOKd9Vj9YB435sViW4g4RbR4g&s',
             ),
             const SizedBox(width: 32),
             Expanded(
@@ -34,7 +35,7 @@ class NewestBooksItem extends StatelessWidget {
                 children: [
                   Text(
                     maxLines: 2,
-                    bookModel!.volumeInfo.title!,
+                    bookModel?.volumeInfo.title ?? 'Book Title',
                     overflow: TextOverflow.ellipsis,
                     style: Styles.subTitleLarge24.copyWith(
                       fontFamily: kGTSectraFine,
@@ -42,11 +43,11 @@ class NewestBooksItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    bookModel!.volumeInfo.authors![0],
+                    bookModel?.volumeInfo.authors?[0] ?? 'UNknown author',
                     style: Styles.subTitleSmall17,
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+                    maxLines: 1,
                   ),
                   const SizedBox(height: 3),
                   Row(

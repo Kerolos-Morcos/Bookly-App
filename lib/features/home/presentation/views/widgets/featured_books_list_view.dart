@@ -28,8 +28,11 @@ class FeaturedBooksListView extends StatelessWidget {
                   ),
                   child: CustomBookImage(
                     aspectRatio: 1.70 / 2.5,
-                    imageURL:
-                        reversedBooks[index].volumeInfo.imageLinks!.thumbnail!,
+                    imageURL: reversedBooks[index]
+                            .volumeInfo
+                            .imageLinks
+                            ?.thumbnail ??
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp8tqoFKYU6xOKd9Vj9YB435sViW4g4RbR4g&s',
                   ),
                 );
               },
