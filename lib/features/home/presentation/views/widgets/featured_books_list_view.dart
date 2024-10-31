@@ -29,8 +29,9 @@ class FeaturedBooksListView extends StatelessWidget {
                     right: index == reversedBooks.length - 1 ? 0 : 14.0,
                   ),
                   child: GestureDetector(
-                    onTap: (){
-                      GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: reversedBooks[index]);
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                          extra: reversedBooks[index]);
                     },
                     child: CustomBookImage(
                       aspectRatio: 1.70 / 2.5,

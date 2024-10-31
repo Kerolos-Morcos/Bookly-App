@@ -5,13 +5,13 @@ class CustomActionButton extends StatelessWidget {
   final Color color, backgroundColor;
   final String text;
   final BorderRadius? borderRadius;
-  final Function() onPressed;
+  final void Function()? onPressed;
   const CustomActionButton({
     super.key,
     required this.color,
     required this.backgroundColor,
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.borderRadius,
   });
 

@@ -61,9 +61,11 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               // Book's Action Buttons
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: BooksAction(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: BooksAction(
+                  bookModel: bookModel,
+                ),
               ),
               const Expanded(
                 child: SizedBox(height: 30),
