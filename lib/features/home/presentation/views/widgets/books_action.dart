@@ -1,9 +1,7 @@
-import 'dart:developer';
-
+import 'package:bookly_app/core/utils/functions/launch_url.dart';
 import 'package:bookly_app/core/utils/widgets/custom_action_button.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
   final BookModel bookModel;
@@ -26,13 +24,7 @@ class BooksAction extends StatelessWidget {
         ),
         CustomActionButton(
           onPressed: () async {
-            Uri uri = Uri.parse(
-                bookModel.volumeInfo.previewLink ?? 'https://www.google.com');
-            if (await canLaunchUrl(uri)) {
-              await launchUrl(uri, mode: LaunchMode.externalApplication);
-            } else {
-              log('error');
-            }
+            await launchURL(context, bookModel.volumeInfo.previewLink);
           },
           text: bookModel.volumeInfo.previewLink != null
               ? 'Free preview'
