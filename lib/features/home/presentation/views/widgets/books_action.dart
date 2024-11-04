@@ -13,7 +13,7 @@ class BooksAction extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomActionButton(
-          onPressed: () {},
+          onPressed: null,
           text: bookModel.saleInfo?.saleability ?? 'Free',
           backgroundColor: Colors.white,
           color: Colors.black,

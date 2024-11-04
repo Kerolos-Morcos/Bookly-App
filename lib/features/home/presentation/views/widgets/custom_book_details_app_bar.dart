@@ -19,9 +19,9 @@ class CustomBookDetailsAppBar extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
+        const IconButton(
+          onPressed: null,
+          icon: Icon(
             Icons.shopping_cart_outlined,
             size: 35,
             color: Colors.white,
