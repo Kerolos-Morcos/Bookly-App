@@ -31,7 +31,8 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.connectionError:
         return ServerFailure(
-            errorMessage: 'Request with ApiServer has a connection error, please check your connection!');
+            errorMessage:
+                'Request with ApiServer has a connection error, please check your connection!');
 
       case DioExceptionType.unknown:
         if (dioException.message!.contains('SocketException')) {
@@ -39,9 +40,6 @@ class ServerFailure extends Failure {
         }
         return ServerFailure(
             errorMessage: 'Unexpected Error, please try again!');
-      default:
-        return ServerFailure(
-            errorMessage: 'An error occurred, please try again!');
     }
   }
 

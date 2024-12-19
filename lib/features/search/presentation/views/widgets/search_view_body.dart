@@ -20,7 +20,7 @@ class SearchViewBody extends StatelessWidget {
             'Search results',
             style: Styles.titleLargeBold22.copyWith(
               fontWeight: FontWeight.w500,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withAlpha(230),
             ),
           ),
           const SizedBox(height: 12),
